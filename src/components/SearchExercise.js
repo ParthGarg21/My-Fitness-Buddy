@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HorizontalBar from "./HorizontalBar";
+import { BodyPartContextWrapper } from "../context/BodyPartContext";
 
 const SearchExcercise = () => {
   const [value, setValue] = useState("");
-
   // Get all the excercises when the user searches, and  then filter out the ones satisfying the user's search
   // Each exercise has a bodyPart prop, target prop, name prop, equipment prop
   const handleForm = (e) => {
@@ -12,7 +12,7 @@ const SearchExcercise = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "cd073e2f94msh588cfacf632e579p1db765jsn995356271579",
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_EXCERCISEDB_API,
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
       },
     };
@@ -41,7 +41,7 @@ const SearchExcercise = () => {
     setValue(e.target.value);
   };
   return (
-    <>
+    <BodyPartContextWrapper>
       <section className="search-exercise-con">
         <h1 className="search-title">Search for exercises or body parts!</h1>
         <form className="search-form" onSubmit={handleForm}>
@@ -57,11 +57,11 @@ const SearchExcercise = () => {
         </form>
       </section>
 
-      <section className="search-exercise-con" >
+      <section className="search-exercise-con">
         <h1 className="search-title">Or select a body part : </h1>
         <HorizontalBar />
       </section>
-    </>
+    </BodyPartContextWrapper>
   );
 };
 
