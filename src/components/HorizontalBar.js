@@ -1,14 +1,12 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { allBodyParts, bodyPartImages } from "../styles/allBodyParts";
+import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
-import { bodyPartContext } from "../context/BodyPartContext";
+import { exerciseContext } from "../context/ExerciseContext";
+import fetchData from "../utils/fetchData";
 
 const HorizontalBar = () => {
   const cardsCon = useRef(null);
-  const { bodyPart, setBodyPart } = useContext(bodyPartContext);
-  useEffect(() => {
-    console.log(bodyPart);
-  });
+  const { setExercises } = useContext(exerciseContext);
 
   const handLeftScroll = () => {
     cardsCon.current.scrollBy(-250, 0);
@@ -16,6 +14,19 @@ const HorizontalBar = () => {
 
   const handleRightScroll = () => {
     cardsCon.current.scrollBy(250, 0);
+  };
+
+  // Get all the excercises for a body part when the user selects a body part
+  // Each exercise has a bodyPart prop, target prop, name prop, equipment prop
+  const handleBodyPart = (bodyPart) => {
+    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`;
+    console.log(url);
+    const fetchBodyPartExercises = async () => {
+      const exercises = await fetchData(url);
+      console.log(exercises);
+      setExercises(exercises);
+    };
+    fetchBodyPartExercises();
   };
 
   return (
@@ -28,17 +39,15 @@ const HorizontalBar = () => {
         </div>
 
         <div className="inner-con" ref={cardsCon}>
-          {allBodyParts.map((bodyPart, idx) => {
+          {allBodyParts.map((currBodyPart, idx) => {
             return (
               <button
                 className="body-part-card"
                 key={idx}
-                onClick={() => {
-                  setBodyPart(bodyPart);
-                }}
+                onClick={() => handleBodyPart(currBodyPart)}
               >
                 <BodyPartCard
-                  bodyPart={bodyPart}
+                  bodyPart={currBodyPart}
                   bodyPartImage={bodyPartImages[idx]}
                 />
               </button>
