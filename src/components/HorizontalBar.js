@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
 import { exerciseContext } from "../context/ExerciseContext";

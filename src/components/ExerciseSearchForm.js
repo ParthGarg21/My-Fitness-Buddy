@@ -6,10 +6,6 @@ const ExerciseSearchForm = () => {
   const [value, setValue] = useState("");
   const { setExercises } = useContext(exerciseContext);
 
-  // useEffect(() => {
-  //   console.log(search);
-  // });
-
   // Get all the excercises when the user searches, and  then filter out the ones satisfying the user's search
   // Each exercise has a bodyPart prop, target prop, name prop, equipment prop
   const handleForm = (e) => {

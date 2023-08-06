@@ -1,9 +1,7 @@
+import toPascalCase from "../utils/toPascalCase";
+
 const BodyPartCard = ({ bodyPart, bodyPartImage }) => {
-  const str = bodyPart.split(" ");
-  let newStr = "";
-  for (let s of str) {
-    newStr += s[0].toUpperCase() + s.substr(1) + " ";
-  }
+  const newStr = toPascalCase(bodyPart);
   return (
     <>
       <h2 className="body-part-title">{newStr}</h2>
