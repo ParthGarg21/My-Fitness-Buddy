@@ -22,13 +22,13 @@ const HomeVideo = () => {
 
   return (
     <video
-      className="home-video"
+      className="home-video-con"
       autoPlay={true}
       muted={true}
       onEnded={handleVideoChange}
       src={src}
     >
-      <source type="video/mp4" />
+      <source className="home-video" type="video/mp4" />
     </video>
   );
 };

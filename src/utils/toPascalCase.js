@@ -1,7 +1,6 @@
 const toPascalCase = (str) => {
   str.trim();
   str = str.split(" ");
-  console.log(str);
   let newStr = "";
   for (let s of str) {
     if (s[0] !== undefined) {

@@ -2,11 +2,10 @@ import { useContext, useRef } from "react";
 import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
 import { exerciseContext } from "../context/ExerciseContext";
-import fetchData from "../utils/fetchData";
 
 const HorizontalBar = () => {
   const cardsCon = useRef(null);
-  const { setExercises } = useContext(exerciseContext);
+  const { setExercises, allExercises } = useContext(exerciseContext);
 
   const handLeftScroll = () => {
     cardsCon.current.scrollBy(-250, 0);
@@ -16,17 +15,15 @@ const HorizontalBar = () => {
     cardsCon.current.scrollBy(250, 0);
   };
 
-  // Get all the excercises for a body part when the user selects a body part
-  // Each exercise has a bodyPart prop, target prop, name prop, equipment prop
+  /**
+   * When a user selects a bodypart, then all the exercises are searched through to get the target queries by the bodypart
+   */
+
   const handleBodyPart = (bodyPart) => {
-    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`;
-    console.log(url);
-    const fetchBodyPartExercises = async () => {
-      const exercises = await fetchData(url);
-      console.log(exercises);
-      setExercises(exercises);
-    };
-    fetchBodyPartExercises();
+    const exercises = allExercises.filter((exercise) => {
+      return exercise.bodyPart.toLowerCase().includes(bodyPart);
+    });
+    setExercises(exercises);
   };
 
   return (

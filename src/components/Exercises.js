@@ -17,7 +17,7 @@ const Exercises = () => {
   return (
     <section className="exercises">
       <h1>
-        {countRenders.current <= 1
+        {countRenders.current <= 2
           ? "Try to search something (like: biceps, barbell, chest, etc) or just select a body part!"
           : exercises.length === 0
           ? `Sorry, could not find any results. Try to search something else (like: biceps, barbell, chest, etc) or just select a body part!`
@@ -26,7 +26,11 @@ const Exercises = () => {
       {exercises.length !== 0 && (
         <section className="exercises-container">
           {exercises.map((exercise) => {
-            return <ExerciseCard exercise={exercise} />;
+            return (
+              <article className="exercise-card" key={exercise.id}>
+                <ExerciseCard exercise={exercise} />
+              </article>
+            );
           })}
         </section>
       )}

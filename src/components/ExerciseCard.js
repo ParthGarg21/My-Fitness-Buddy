@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import toPascalCase from "../utils/toPascalCase";
 
 const ExerciseCard = ({ exercise }) => {
@@ -17,7 +16,7 @@ const ExerciseCard = ({ exercise }) => {
   const target = toPascalCase(exercise.target);
 
   return (
-    <article className="exercise-card" key={exercise.id}>
+    <>
       <h1 className="exercise-name">{name}</h1>
       {/* <h2 className="exercise-bodypart">{exercise.bodyPart}</h2> */}
       <img className="exercise-img" src={exercise.gifUrl} alt="" />
@@ -29,7 +28,7 @@ const ExerciseCard = ({ exercise }) => {
         <span className="label-head">Target Muscle: </span>
         <span className="label">{target}</span>
       </div>
-    </article>
+    </>
   );
 };
 
