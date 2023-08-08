@@ -5,7 +5,7 @@ import { exerciseContext } from "../context/ExerciseContext";
 
 const HorizontalBar = () => {
   const cardsCon = useRef(null);
-  const { setExercises, allExercises } = useContext(exerciseContext);
+  const { setAllVisibleExercises, allExercises } = useContext(exerciseContext);
 
   const handLeftScroll = () => {
     cardsCon.current.scrollBy(-250, 0);
@@ -18,12 +18,11 @@ const HorizontalBar = () => {
   /**
    * When a user selects a bodypart, then all the exercises are searched through to get the target queries by the bodypart
    */
-
   const handleBodyPart = (bodyPart) => {
     const exercises = allExercises.filter((exercise) => {
       return exercise.bodyPart.toLowerCase().includes(bodyPart);
     });
-    setExercises(exercises);
+    setAllVisibleExercises(exercises);
   };
 
   return (

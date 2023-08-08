@@ -11,16 +11,38 @@ const options = {
   },
 };
 
+/**
+ * Each exercise contains the following data:
+ * bodyPart
+ * equipment
+ * gifUrl
+ * id
+ * name
+ * target
+ */
+
 const useFetchExercise = () => {
-  const { setAllExercises } = useContext(exerciseContext);
+  const {
+    setAllExercises,
+    // setAllBodyParts,
+    // setAllEquipments,
+    // setAllTargetMuscles,
+    // setAllNames,
+  } = useContext(exerciseContext);
 
   const fetchAllExercises = async () => {
     try {
       const res = await fetch(url, options);
       const exercises = await res.json();
-      console.log(exercises);
       setAllExercises(exercises);
-    } catch {
+      // setAllBodyParts(exercises.map((exercise) => exercise.bodyPart));
+      // setAllEquipments(exercises.map((exercise) => exercise.equipment));
+      // setAllTargetMuscles(exercises.map((exercise) => exercise.target));
+      // setAllNames(exercises.map((exercise) => exercise.name));
+
+      console.log(exercises);
+    } catch(err) {
+      console.log(err)
       setAllExercises([]);
     }
   };
