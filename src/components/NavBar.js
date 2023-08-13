@@ -1,3 +1,7 @@
+/**
+ * Navbar component
+ */
+
 import logo from "../assets/images/logo.png";
 
 const NavBar = () => {

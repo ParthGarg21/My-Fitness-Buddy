@@ -1,3 +1,7 @@
+/**
+ * Storing all the body parts name and getting all the body part images for displaying the horizontal body part menu
+ */
+
 import back from "../assets/images/back.png";
 import cardio from "../assets/images/cardio.png";
 import chest from "../assets/images/chest.png";

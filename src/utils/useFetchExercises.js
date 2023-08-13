@@ -1,3 +1,7 @@
+/**
+ * React custom hook to fetch and store ALL the available exercises from the API on the first render
+ */
+
 import { useContext, useEffect } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
 
@@ -22,27 +26,16 @@ const options = {
  */
 
 const useFetchExercise = () => {
-  const {
-    setAllExercises,
-    // setAllBodyParts,
-    // setAllEquipments,
-    // setAllTargetMuscles,
-    // setAllNames,
-  } = useContext(exerciseContext);
+  const { setAllExercises } = useContext(exerciseContext);
 
   const fetchAllExercises = async () => {
     try {
       const res = await fetch(url, options);
       const exercises = await res.json();
       setAllExercises(exercises);
-      // setAllBodyParts(exercises.map((exercise) => exercise.bodyPart));
-      // setAllEquipments(exercises.map((exercise) => exercise.equipment));
-      // setAllTargetMuscles(exercises.map((exercise) => exercise.target));
-      // setAllNames(exercises.map((exercise) => exercise.name));
-
       console.log(exercises);
-    } catch(err) {
-      console.log(err)
+    } catch (err) {
+      console.log(err);
       setAllExercises([]);
     }
   };

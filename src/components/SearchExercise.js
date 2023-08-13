@@ -1,3 +1,7 @@
+/**
+ * Component to render the exercise search bar and the horizontal body part menu
+ */
+
 import HorizontalBar from "./HorizontalBar";
 import ExerciseSearchForm from "./ExerciseSearchForm";
 

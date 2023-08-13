@@ -1,3 +1,7 @@
+/**
+ * Body Part Card Component
+ */
+
 import toPascalCase from "../utils/toPascalCase";
 
 const BodyPartCard = ({ bodyPart, bodyPartImage }) => {

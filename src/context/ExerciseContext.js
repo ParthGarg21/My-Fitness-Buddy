@@ -1,3 +1,7 @@
+/**
+ * React context to priovide allExercises and allVisibleExercises states
+ */
+
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -14,14 +18,15 @@ const exerciseContext = createContext();
  */
 
 const ExerciseContextWrapper = ({ children }) => {
-  // state to store all the currently showing exercises
-
   // state to fetch and store all the exercises
   const [allExercises, setAllExercises] = useState([]);
 
-  // state to fetch and store all the VISIBLE exercises
+  // state to store all the VISIBLE exercises
   const [allVisibleExercises, setAllVisibleExercises] = useState([]);
 
+  // state to store the current visible page
+  const [page, setPage] = useState(0);
+  
 
   return (
     <exerciseContext.Provider
@@ -30,6 +35,8 @@ const ExerciseContextWrapper = ({ children }) => {
         setAllExercises,
         allVisibleExercises,
         setAllVisibleExercises,
+        page,
+        setPage,
       }}
     >
       {children}

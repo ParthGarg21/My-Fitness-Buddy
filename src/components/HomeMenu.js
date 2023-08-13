@@ -1,3 +1,7 @@
+/**
+ * Home visible content component
+ */
+
 import banner from "../assets/images/banner.jpg";
 
 const HomeMenu = () => {

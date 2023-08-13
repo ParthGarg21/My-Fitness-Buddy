@@ -27,6 +27,7 @@ html {
   --text-color: hsl(180, 4%, 72%);
   --text-color-light: hsl(180, 4%, 65%);
   --body-color: hsl(180, 12%, 8%);
+  --body-color-faded: hsla(180, 12%, 8%, 0.154);
   --first-color-light-home-bg: hsla(79, 72%, 55%, 0.286);
   height: 100%;
 }
@@ -406,4 +407,82 @@ body {
   color: var(--body-color);
   background-color: var(--first-color);
   border-color: var(--body-color);
+}
+
+
+
+.pagination-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.pagination-pages-con {
+  display: flex;
+  gap: 2rem;
+}
+
+.pages {
+  display: flex;
+  gap: 1rem;
+
+}
+
+
+.outer-con {
+  border: 4px solid black;
+}
+
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--body-color);
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  border-radius: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-color: var(--first-color);
+  transition: all;
+  transition-duration: .3s;
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background-color: var(--body-color-faded);
+}
+
+.active-page {
+  background-color: var(--body-color);
+  color: var(--first-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  border-radius: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--first-color);
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.curr-page-display {
+  font-size: 1.25rem;
+  font-weight: 500;
 }

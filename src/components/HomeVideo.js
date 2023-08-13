@@ -1,3 +1,8 @@
+/**
+ * Background video component
+ * When any video ends, the index of the video is incremented by one, and then updates the currenty active video
+ */
+
 import { useEffect, useRef, useState } from "react";
 import video1 from "../assets/videos/video-1.mp4";
 import video2 from "../assets/videos/video-2.mp4";

@@ -1,3 +1,8 @@
+/**
+ * Horizontal bar component containing all the body parts available
+ * When a body part gets selected, it updates all the visible exercises
+ */
+
 import { useContext, useRef } from "react";
 import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
@@ -5,7 +10,8 @@ import { exerciseContext } from "../context/ExerciseContext";
 
 const HorizontalBar = () => {
   const cardsCon = useRef(null);
-  const { setAllVisibleExercises, allExercises } = useContext(exerciseContext);
+  const { setAllVisibleExercises, allExercises, setPage } =
+    useContext(exerciseContext);
 
   const handLeftScroll = () => {
     cardsCon.current.scrollBy(-250, 0);
@@ -23,6 +29,7 @@ const HorizontalBar = () => {
       return exercise.bodyPart.toLowerCase().includes(bodyPart);
     });
     setAllVisibleExercises(exercises);
+    setPage(0);
   };
 
   return (

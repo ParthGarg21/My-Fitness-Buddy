@@ -1,3 +1,7 @@
+/**
+ * Exercise card component
+ */
+
 import toPascalCase from "../utils/toPascalCase";
 
 const ExerciseCard = ({ exercise }) => {
