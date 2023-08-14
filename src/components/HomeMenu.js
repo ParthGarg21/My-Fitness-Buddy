@@ -11,11 +11,12 @@ const HomeMenu = () => {
         <span className="home-title">Welcome to My Fitness Buddy</span>
         <br />
         <p className="home-content">
-          Your one stop destination to learn all different kinds of
-          exercises.
+          Your one stop destination to learn all different kinds of exercises.
         </p>
         <p className="home-content">Sweat, Smile and Repeat!!</p>
-        <button className="home-btn">Explore Exercises</button>
+        <a className="home-btn" href="#search-exercises">
+            Explore Exercises
+        </a>
       </div>
       <div className="home-image-container">
         <img className="home-image" src={banner} alt="" />

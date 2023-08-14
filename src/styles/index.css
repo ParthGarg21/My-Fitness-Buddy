@@ -14,6 +14,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -167,6 +168,10 @@ body {
   font-size: 1rem;
   font-weight: 700;
   border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--first-color);
 }
 
 .home-btn:hover {
@@ -174,8 +179,17 @@ body {
   background: #000;
 }
 
-.search-exercise-con {
+.search-exercises-section {
+  background-color: red;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--body-color);
+  /* padding: 5rem 3rem; */
+}
+
+.search-exercise-con {
   color: var(--text-color);
   display: flex;
   justify-content: center;
@@ -313,6 +327,10 @@ body {
   margin-left: auto;
 }
 
+/*
+  Exercise component
+*/
+
 .exercises {
   padding: 5rem 3rem;
   background-color: var(--first-color);
@@ -347,7 +365,9 @@ body {
 }
 
 .exercise-img {
+  height: 25rem;
   width: 100%;
+  object-fit: cover;
   margin-top: auto;
 }
 
@@ -379,6 +399,10 @@ body {
   text-align: center;
 }
 
+/*
+  Related terms
+*/
+
 .related-terms-con {
   position: absolute;
   top: 50px;
@@ -409,7 +433,9 @@ body {
   border-color: var(--body-color);
 }
 
-
+/*
+  Pagination
+*/
 
 .pagination-con {
   display: flex;
@@ -427,12 +453,6 @@ body {
 .pages {
   display: flex;
   gap: 1rem;
-
-}
-
-
-.outer-con {
-  border: 4px solid black;
 }
 
 .pagination-btn {
@@ -457,29 +477,23 @@ body {
 }
 
 .active-page {
-  background-color: var(--body-color);
-  color: var(--first-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5rem;
-  width: 2.5rem;
-  border: none;
-  border-radius: 100%;
-  font-size: 1.25rem;
-  font-weight: 600;
-  cursor: pointer;
+  background-color: var(--body-color-faded);
 }
 
 .page-nav-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--first-color);
+  background-color: transparent;
   border: none;
   font-size: 1.25rem;
   font-weight: 500;
   cursor: pointer;
+}
+
+.disable-btn {
+  color: var(--body-color-faded);
+  cursor: not-allowed;
 }
 
 .curr-page-display {

@@ -10,7 +10,10 @@ import Exercises from "./components/Exercises";
 import { exerciseContext } from "./context/ExerciseContext";
 import useFetchExercise from "./utils/useFetchExercises";
 import { useContext } from "react";
-import Pagination from "./components/Pagination";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
   useFetchExercise();
@@ -27,7 +30,6 @@ function App() {
           <Exercises />
         </>
       )}
-      {/* <Pagination totalExercises={40}/> */}
     </>
   );
 }

@@ -5,7 +5,7 @@
 import { useContext, useEffect, useState } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
 import RelatedTerms from "./RelatedTerms";
-import debounce from "../utils/debounce";
+import { scrollToBottom } from "../utils/scrollPage";
 
 /**
  * Each exercise contains the following data:
@@ -33,7 +33,7 @@ const borderRadius = {
   },
 };
 
-const ExerciseSearchForm = () => {
+const ExerciseSearchForm = ({ searchExerciseContainer }) => {
   // State to manage the input value
   const [value, setValue] = useState("");
 
@@ -41,18 +41,19 @@ const ExerciseSearchForm = () => {
   const [relatedTerms, setRelatedTerms] = useState([]);
 
   // Getting the required things from the "exerciseContext" context
-  const { allExercises, setAllVisibleExercises, setPage } =
-    useContext(exerciseContext);
+  const { allExercises, setAllVisibleExercises } = useContext(exerciseContext);
 
   /**
    * when a user submits a search term, then all the exercises are searched through to get the target queries, and the related terms are emptied
    */
   const handleForm = (e) => {
     e.preventDefault();
-    setPage(0);
     setRelatedTerms([]);
 
-    const searchValue = value.toLowerCase();
+    const searchValue = value.trim().toLowerCase();
+    if (searchValue === "") {
+      return;
+    }
 
     const exercises = allExercises.filter((exercise) => {
       return (
@@ -62,13 +63,14 @@ const ExerciseSearchForm = () => {
         exercise.name.toLowerCase().includes(searchValue)
       );
     });
-
-    setAllVisibleExercises(exercises);
+    scrollToBottom(searchExerciseContainer);
+    setAllVisibleExercises([...exercises]);
   };
 
   // Function to get the all the related terms on the basis of the current "value" by searching in all the exercises
   const getRealtedExerciseTerms = () => {
     let searchValue = value.trim();
+
     // If the value if empty, then empty all the related terms
     if (searchValue === "") {
       setRelatedTerms([]);
@@ -110,11 +112,6 @@ const ExerciseSearchForm = () => {
   const handleValue = (e) => {
     setValue(e.target.value);
   };
-
-  // useEffect(() => {
-  //   console.log(relatedTerms);
-  //   console.log("re-render")
-  // }, [relatedTerms]);
 
   // When the value state is updated, then get the updated related terms using the debounces version
   useEffect(() => {

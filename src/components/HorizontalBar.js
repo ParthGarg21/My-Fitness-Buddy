@@ -7,10 +7,11 @@ import { useContext, useRef } from "react";
 import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
 import { exerciseContext } from "../context/ExerciseContext";
+import { scrollToBottom } from "../utils/scrollPage";
 
-const HorizontalBar = () => {
+const HorizontalBar = ({ searchExerciseContainer }) => {
   const cardsCon = useRef(null);
-  const { setAllVisibleExercises, allExercises, setPage } =
+  const { setAllVisibleExercises, allExercises } =
     useContext(exerciseContext);
 
   const handLeftScroll = () => {
@@ -28,8 +29,8 @@ const HorizontalBar = () => {
     const exercises = allExercises.filter((exercise) => {
       return exercise.bodyPart.toLowerCase().includes(bodyPart);
     });
-    setAllVisibleExercises(exercises);
-    setPage(0);
+    scrollToBottom(searchExerciseContainer);
+    setAllVisibleExercises([...exercises]);
   };
 
   return (
