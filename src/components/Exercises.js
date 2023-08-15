@@ -8,6 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
 import ExerciseCard from "./ExerciseCard";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
 // Number of exercises per page
 const EXERCISES_PER_PAGE = 20;
@@ -17,10 +18,14 @@ const MAX_PAGINATION_PAGES = 8;
 
 const Exercises = () => {
   const exerciseContainer = useRef(null);
-  const renders = useRef(1);
+  const renders = useRef(0);
 
   // State to keep the number of displaying pagination buttons
   const [displayPages, setDisplayPages] = useState(0);
+
+  useEffect(() => {
+    renders.current++;
+  });
 
   const { allVisibleExercises, page, setPage } = useContext(exerciseContext);
 
@@ -57,7 +62,9 @@ const Exercises = () => {
             {currDisplayingExercises.map((exercise) => {
               return (
                 <article className="exercise-card" key={exercise.id}>
-                  <ExerciseCard exercise={exercise} />
+                  <Link to={`/exercise/${exercise.id}`} className="exercise-card-link" target="_blank">
+                    <ExerciseCard exercise={exercise} />
+                  </Link>
                 </article>
               );
             })}

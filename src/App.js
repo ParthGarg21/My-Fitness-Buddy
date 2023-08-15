@@ -1,35 +1,27 @@
 /**
- * Will render the second part only after all the exercises have been rendered so that 
+ * Will render the second part only after all the exercises have been rendered so that
  */
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import "./styles/index.css";
-import SearchExcercise from "./components/SearchExercise";
-import Exercises from "./components/Exercises";
-import { exerciseContext } from "./context/ExerciseContext";
 import useFetchExercise from "./utils/useFetchExercises";
-import { useContext } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import ExerciseDetails from "./components/ExerciseDetails";
 
 function App() {
   useFetchExercise();
-  const { allExercises } = useContext(exerciseContext);
+
   return (
     <>
       <NavBar />
-      <Home />
-      {allExercises.length === 0 ? (
-        <h1>Loading the functionalities</h1>
-      ) : (
-        <>
-          <SearchExcercise />
-          <Exercises />
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/exercise/:exerciseId" element={<ExerciseDetails />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
+      </Routes>
     </>
   );
 }

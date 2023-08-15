@@ -2,6 +2,7 @@
  * Navbar component
  */
 
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const NavBar = () => {
@@ -13,14 +14,14 @@ const NavBar = () => {
       </div>
       <ul className="nav-menu">
         <li className="nav-menu-item">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-menu-item">
-          <a className="nav-link" href="/about">
+          <Link className="nav-link" to="/about">
             About
-          </a>
+          </Link>
         </li>
         <li className="nav-menu-item">
           <a className="nav-link" href="#search-exercises">
