@@ -8,7 +8,7 @@ import "./styles/index.css";
 import useFetchExercise from "./utils/useFetchExercises";
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
-import ExerciseDetails from "./components/ExerciseDetails";
+import ExerciseInfo from "./components/ExerciseInfo";
 
 function App() {
   useFetchExercise();
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/exercise/:exerciseId" element={<ExerciseDetails />} />
+        <Route path="/exercise/:exerciseId" element={<ExerciseInfo />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </>

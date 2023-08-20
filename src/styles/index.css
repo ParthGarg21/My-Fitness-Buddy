@@ -233,30 +233,6 @@ body {
   border: none;
 }
 
-.body-part-con {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  color: var(--title-color);
-}
-
-.inner-con {
-  display: flex;
-  width: 85%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 3rem;
-  z-index: 10;
-  scroll-behavior: smooth;
-  padding: 2rem;
-  color: #000;
-}
-
-.inner-con::-webkit-scrollbar {
-  display: none;
-}
-
 .body-part-card:hover {
   transform: scale(1.075);
   box-shadow: 10px 10px 5px 0px black;
@@ -287,38 +263,6 @@ body {
   width: 90%;
   height: 10rem;
   object-fit: contain;
-}
-
-.nav-con {
-  width: 7.5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.con-nav {
-  font-weight: 900;
-  font-size: 2rem;
-  border-radius: 100%;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  background-color: var(--body-color);
-  align-items: center;
-  justify-content: center;
-  border: none;
-  color: var(--title-color);
-  cursor: pointer;
-}
-
-.con-nav:hover {
-  background-color: var(--title-color);
-  color: var(--body-color);
-}
-
-.right-arrow {
-  justify-self: center;
-  margin-left: auto;
 }
 
 /*
@@ -498,4 +442,105 @@ body {
 .curr-page-display {
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+/* Exercise details */
+
+.exercise-info {
+  background-color: white;
+  padding: 0 3rem;
+  border: 5px solid;
+  min-height: 87.5%;
+}
+
+.exercise-details-con {
+  display: flex;
+  gap: 5rem;
+  color: #11324D;
+  height: 87.5vh;
+  border: 5px solid pink;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.exercise-details-item {
+  flex: 1;
+  height: 100%;
+  border: 5px solid blue;
+}
+
+.exercise-details-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-description-con {
+  /* border: 5px solid; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.exercise-detail-name {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.exercise-desc {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.exercise-detail-target {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.body-part-detail-icon {
+  width: 4.5rem;
+  object-fit: contain;
+  padding: .5rem;
+  border: 2px solid;
+  border-radius: 100%;
+}
+
+.label-detail {
+  background-color: #4F709C;
+  color: white;
+  width: fit-content;
+}
+
+.detail-text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+/* Related Videos */
+.related-videos-con {
+}
+
+.video-card {
+  border: 5px solid;
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-thumbnail {
+  width: 100%;
+}
+
+.video-desc {
+  word-wrap: break-word;
 }

@@ -5,17 +5,8 @@
 import { useContext, useEffect } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
 
-const url = "https://exercisedb.p.rapidapi.com/exercises";
-
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_EXCERCISEDB_API,
-    "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-  },
-};
-
 /**
+ * The result is an array of exercise objects.
  * Each exercise contains the following data:
  * bodyPart
  * equipment
@@ -26,6 +17,16 @@ const options = {
  */
 
 const useFetchExercise = () => {
+  const url = "https://exercisedb.p.rapidapi.com/exercises";
+
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+    },
+  };
+
   const { setAllExercises } = useContext(exerciseContext);
 
   const fetchAllExercises = async () => {

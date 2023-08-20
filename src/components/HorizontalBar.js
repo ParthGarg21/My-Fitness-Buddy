@@ -8,11 +8,11 @@ import { allBodyParts, bodyPartImages } from "../utils/allBodyParts";
 import BodyPartCard from "./BodyPartCard";
 import { exerciseContext } from "../context/ExerciseContext";
 import { scrollToBottom } from "../utils/scrollPage";
+import horizonBarStyle from "../styles/horizontal-bar.module.css";
 
 const HorizontalBar = ({ searchExerciseContainer }) => {
   const cardsCon = useRef(null);
-  const { setAllVisibleExercises, allExercises } =
-    useContext(exerciseContext);
+  const { setAllVisibleExercises, allExercises } = useContext(exerciseContext);
 
   const handLeftScroll = () => {
     cardsCon.current.scrollBy(-250, 0);
@@ -34,37 +34,45 @@ const HorizontalBar = ({ searchExerciseContainer }) => {
   };
 
   return (
-    <>
-      <div className="body-part-con">
-        <div className="nav-con left-btn-con">
-          <span className="con-nav left-arrow" onClick={handLeftScroll}>
-            &lt;
-          </span>
-        </div>
-
-        <div className="inner-con" ref={cardsCon}>
-          {allBodyParts.map((currBodyPart, idx) => {
-            return (
-              <button
-                className="body-part-card"
-                key={idx}
-                onClick={() => handleBodyPart(currBodyPart)}
-              >
-                <BodyPartCard
-                  bodyPart={currBodyPart}
-                  bodyPartImage={bodyPartImages[idx]}
-                />
-              </button>
-            );
-          })}
-        </div>
-        <div className="nav-con right-btn-con">
-          <span className="con-nav right-arrow" onClick={handleRightScroll}>
-            &gt;
-          </span>
-        </div>
+    <div className={horizonBarStyle.horizontalScrollBar}>
+      <div
+        className={horizonBarStyle.navCon + " " + horizonBarStyle.leftBtnCon}
+      >
+        <span
+          className={horizonBarStyle.conNav + " " + horizonBarStyle.leftArrow}
+          onClick={handLeftScroll}
+        >
+          &lt;
+        </span>
       </div>
-    </>
+
+      <div className={horizonBarStyle.horizontalScrollInnerCon} ref={cardsCon}>
+        {allBodyParts.map((currBodyPart, idx) => {
+          return (
+            <button
+              className="body-part-card"
+              key={idx}
+              onClick={() => handleBodyPart(currBodyPart)}
+            >
+              <BodyPartCard
+                bodyPart={currBodyPart}
+                bodyPartImage={bodyPartImages[idx]}
+              />
+            </button>
+          );
+        })}
+      </div>
+      <div
+        className={horizonBarStyle.navCon + " " + horizonBarStyle.rightBtnCon}
+      >
+        <span
+          className={horizonBarStyle.conNav + " " + horizonBarStyle.rightArrow}
+          onClick={handleRightScroll}
+        >
+          &gt;
+        </span>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,55 @@
+.horizontalScrollBar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--title-color);
+}
+
+.horizontalScrollInnerCon {
+    display: flex;
+    width: 85%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 3rem;
+    z-index: 10;
+    scroll-behavior: smooth;
+    padding: 2rem;
+    color: #000;
+}
+
+.horizontalScrollInnerCon::-webkit-scrollbar {
+    display: none;
+}
+
+.navCon {
+    width: 7.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conNav {
+    font-weight: 900;
+    font-size: 2rem;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    background-color: var(--body-color);
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.conNav:hover {
+    background-color: var(--title-color);
+    color: var(--body-color);
+}
+
+.rightArrow {
+    justify-self: center;
+    margin-left: auto;
+}
