@@ -105,7 +105,6 @@ body {
   object-position: 50% 50%;
 }
 
-
 .home-menu {
   width: 100%;
   height: 100%;
@@ -243,7 +242,7 @@ body {
   cursor: pointer;
   background-color: var(--first-color);
   flex-shrink: 0;
-  width: 15rem;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -327,19 +326,21 @@ body {
   gap: 10px;
   font-weight: 500;
   margin: 0 2rem;
+  font-size: 16px;
 }
 
 .label-head {
-  width: max-content;
+  width: fit-content;
 }
 
 .label {
   padding: 0.5rem;
   border-radius: 4px;
   background-color: var(--first-color);
-  color: var(--body-color);
-  width: min-content;
+  width: fit-content;
   text-align: center;
+  background-color: #4F709C;
+  color: white;
 }
 
 /*
@@ -445,28 +446,23 @@ body {
 }
 
 /* Exercise details */
-
 .exercise-info {
   background-color: white;
+  color: #11324D;
   padding: 0 3rem;
-  border: 5px solid;
   min-height: 87.5%;
 }
 
 .exercise-details-con {
   display: flex;
   gap: 5rem;
-  color: #11324D;
   height: 87.5vh;
-  border: 5px solid pink;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  align-items: center;
 }
 
 .exercise-details-item {
   flex: 1;
-  height: 100%;
-  border: 5px solid blue;
+  height: 700px;
 }
 
 .exercise-details-img {
@@ -479,11 +475,11 @@ body {
 }
 
 .exercise-description-con {
-  /* border: 5px solid; */
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 3rem;
+  line-height: 1.5;
 }
 
 .exercise-detail-name {
@@ -512,12 +508,6 @@ body {
   border-radius: 100%;
 }
 
-.label-detail {
-  background-color: #4F709C;
-  color: white;
-  width: fit-content;
-}
-
 .detail-text {
   display: flex;
   align-items: center;
@@ -526,21 +516,94 @@ body {
 }
 
 /* Related Videos */
-.related-videos-con {
+.related-videos {
+  padding-bottom: 40px;
+}
+
+.related-videos-title {
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 .video-card {
-  border: 5px solid;
-  width: 300px;
+  width: 350px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
+  gap: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-decoration: none;
+  color: #11324D;
+  transition: all;
+  transition-duration: .3s;
+}
+
+.video-card:hover {
+  transform: scale(1.075);
+}
+
+
+.video-card>* {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.video-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  height: 125px;
+  color: #000;
 }
 
 .video-thumbnail {
   width: 100%;
+  height: 200px;
+  padding: 0;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.video-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .video-desc {
   word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.video-desc-title {
+  font-weight: 600;
+  color: #000;
+}
+
+/* Related Exercises */
+.similar-exercise {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--first-color);
+  text-decoration: none;
+  gap: 1rem;
+  border-radius: 1rem;
+  width: 350px;
+  flex-shrink: 0;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  color: #11324D;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: var(--body-color);
+  color: white;
 }

@@ -26,10 +26,14 @@ const useFetchExerciseById = (exerciseId, setExerciseDetails) => {
   };
 
   const fetchExercise = async () => {
+    if (window.localStorage.getItem(exerciseId)) {
+      setExerciseDetails(JSON.parse(window.localStorage.getItem(exerciseId)));
+    }
     try {
       const res = await fetch(url, options);
       const exerciseDetails = await res.json();
       setExerciseDetails(exerciseDetails);
+      window.localStorage.setItem(exerciseId, JSON.stringify(exerciseDetails));
     } catch (err) {
       setExerciseDetails({ err });
     }

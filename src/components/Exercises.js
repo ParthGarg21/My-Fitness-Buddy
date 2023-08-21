@@ -18,7 +18,7 @@ const MAX_PAGINATION_PAGES = 8;
 
 const Exercises = () => {
   const exerciseContainer = useRef(null);
-  const renders = useRef(0);
+  const renders = useRef(1);
 
   // State to keep the number of displaying pagination buttons
   const [displayPages, setDisplayPages] = useState(0);
@@ -62,7 +62,10 @@ const Exercises = () => {
             {currDisplayingExercises.map((exercise) => {
               return (
                 <article className="exercise-card" key={exercise.id}>
-                  <Link to={`/exercise/${exercise.id}`} className="exercise-card-link" target="_blank">
+                  <Link
+                    to={`/exercise/${exercise.id}`}
+                    className="exercise-card-link"
+                  >
                     <ExerciseCard exercise={exercise} />
                   </Link>
                 </article>

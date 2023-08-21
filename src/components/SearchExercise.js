@@ -2,7 +2,7 @@
  * Component to render the exercise search bar and the horizontal body part menu
  */
 
-import HorizontalBar from "./HorizontalBar";
+import BodyPartOptions from "./BodyPartOptions";
 import ExerciseSearchForm from "./ExerciseSearchForm";
 import { useRef } from "react";
 
@@ -24,7 +24,7 @@ const SearchExcercise = () => {
 
       <section className="search-exercise-con">
         <h1 className="search-title">Or select a body part : </h1>
-        <HorizontalBar searchExerciseContainer={searchExerciseContainer}/>
+        <BodyPartOptions searchExerciseContainer={searchExerciseContainer}/>
       </section>
     </section>
   );

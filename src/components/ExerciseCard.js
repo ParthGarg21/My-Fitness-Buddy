@@ -4,7 +4,7 @@
 
 import toPascalCase from "../utils/toPascalCase";
 
-const ExerciseCard = ({ exercise }) => {
+const ExerciseCard = ({ exercise, similarCard }) => {
   /**
    * Each exercise contains the following data:
    * bodyPart
@@ -22,7 +22,6 @@ const ExerciseCard = ({ exercise }) => {
   return (
     <>
       <h1 className="exercise-name">{name}</h1>
-      {/* <h2 className="exercise-bodypart">{exercise.bodyPart}</h2> */}
       <img className="exercise-img" src={exercise.gifUrl} alt="" />
       <div className="definition">
         <span className="label-head">Body Part: </span>

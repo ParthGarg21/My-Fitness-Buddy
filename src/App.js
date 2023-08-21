@@ -4,15 +4,13 @@
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 import "./styles/index.css";
-import useFetchExercise from "./utils/useFetchExercises";
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
 import ExerciseInfo from "./components/ExerciseInfo";
 
 function App() {
-  useFetchExercise();
-
   return (
     <>
       <NavBar />
@@ -22,6 +20,7 @@ function App() {
         <Route path="/exercise/:exerciseId" element={<ExerciseInfo />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
+      <Footer />
     </>
   );
 }

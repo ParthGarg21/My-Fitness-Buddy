@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import useFetchExerciseById from "../utils/useFetchExerciseById";
 import ExerciseDetails from "./ExerciseDetails";
 import RelatedVideos from "./RelatedVideos";
+import SimilarEquipment from "./SimilarEquipment";
+import SimilarMuscle from "./SimilarMuscle";
 
 /**
  * Exercise contains the following data:
@@ -28,6 +30,8 @@ const ExerciseInfo = () => {
         <>
           <ExerciseDetails exerciseDetails={exerciseDetails} />
           <RelatedVideos exerciseName={exerciseDetails.name} />
+          <SimilarEquipment equipment={exerciseDetails.equipment} />
+          <SimilarMuscle target={exerciseDetails.target} />
         </>
       )}
     </section>

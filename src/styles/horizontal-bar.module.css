@@ -51,5 +51,18 @@
 
 .rightArrow {
     justify-self: center;
-    margin-left: auto;
+}
+
+.videoArrow {
+    color: var(--body-color);
+    background-color: white;
+}
+
+.videoArrow:hover {
+    color: white;
+    background-color: var(--body-color);
+}
+
+.videoInnerScroll {
+    padding: 40px;
 }

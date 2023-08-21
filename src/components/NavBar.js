@@ -24,7 +24,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li className="nav-menu-item">
-          <a className="nav-link" href="#search-exercises">
+          <a className="nav-link" href="/#search-exercises">
             Excercise
           </a>
         </li>
