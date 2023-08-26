@@ -3,23 +3,24 @@
  */
 
 import banner from "../assets/images/banner.jpg";
+import styles from "../styles/home.module.css";
 
 const HomeMenu = () => {
   return (
-    <div className="home-menu">
-      <div className="home-container">
-        <span className="home-title">Welcome to My Fitness Buddy</span>
+    <div className={styles.homeMenu}>
+      <div className={styles.homeContainer}>
+        <span className={styles.homeTitle}>Welcome to My Fitness Buddy</span>
         <br />
-        <p className="home-content">
+        <p className={styles.homeContent}>
           Your one stop destination to learn all different kinds of exercises.
         </p>
-        <p className="home-content">Sweat, Smile and Repeat!!</p>
-        <a className="home-btn" href="#search-exercises">
-            Explore Exercises
+        <p className={styles.homeContent}>Sweat, Smile and Repeat!!</p>
+        <a className={styles.homeBtn} href="#search-exercises">
+          Explore Exercises
         </a>
       </div>
-      <div className="home-image-container">
-        <img className="home-image" src={banner} alt="" />
+      <div className={styles.homeImageContainer}>
+        <img className={styles.homeImage} src={banner} alt="" />
       </div>
     </div>
   );

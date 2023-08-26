@@ -5,28 +5,59 @@
 import BodyPartOptions from "./BodyPartOptions";
 import ExerciseSearchForm from "./ExerciseSearchForm";
 import { useRef } from "react";
+import styles from "../styles/searchexercise.module.css";
+import { useContext } from "react";
+import { exerciseContext } from "../context/ExerciseContext";
+import { BarLoader } from "react-spinners";
+import useFetchExercise from "../utils/useFetchExercises";
+import Exercises from "./Exercises";
 
 const SearchExcercise = () => {
+  const { allExercises } = useContext(exerciseContext);
+  useFetchExercise();
+
+  // Storing the containter to pass the ref to the children, to enable scrolling on selecting or submitting
   const searchExerciseContainer = useRef(null);
   return (
-    <section
-      id="search-exercises"
-      className="search-exercises-section"
-      ref={searchExerciseContainer}
-    >
-      <section className="search-exercise-con">
-        <h1 className="search-title">
-          Search for exercises, body parts, target muscle, gym machines or even
-          gym equipment!
-        </h1>
-        <ExerciseSearchForm searchExerciseContainer={searchExerciseContainer}/>
-      </section>
+    <>
+      <section
+        id="search-exercises"
+        className={styles.searchExercisesSection}
+        ref={searchExerciseContainer}
+      >
+        {allExercises.length === 0 ? (
+          <section className={styles.searchExerciseCon}>
+            <h1 className="loading-text">Loading the functionalities</h1>
+            <BarLoader
+              color="#ffffff"
+              height={5}
+              width={250}
+              className="loader"
+            />
+          </section>
+        ) : (
+          <>
+            <section className={styles.searchExerciseCon}>
+              <h1 className={styles.searchTitle}>
+                Search for exercises, body parts, target muscle, gym machines or
+                even gym equipment!
+              </h1>
+              <ExerciseSearchForm
+                searchExerciseContainer={searchExerciseContainer}
+              />
+            </section>
 
-      <section className="search-exercise-con">
-        <h1 className="search-title">Or select a body part : </h1>
-        <BodyPartOptions searchExerciseContainer={searchExerciseContainer}/>
+            <section className={styles.searchExerciseCon}>
+              <h1 className={styles.searchTitle}>Or select a body part : </h1>
+              <BodyPartOptions
+                searchExerciseContainer={searchExerciseContainer}
+              />
+            </section>
+          </>
+        )}
       </section>
-    </section>
+      {allExercises.length === 0 ? "" : <Exercises />}
+    </>
   );
 };
 

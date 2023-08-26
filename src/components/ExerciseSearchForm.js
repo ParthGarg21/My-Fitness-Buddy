@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
 import RelatedTerms from "./RelatedTerms";
 import { scrollToBottom } from "../utils/scrollPage";
+import styles from "../styles/exerciseform.module.css";
 
 /**
  * Each exercise contains the following data:
@@ -89,7 +90,7 @@ const ExerciseSearchForm = ({ searchExerciseContainer }) => {
         if (matchKey !== "id" && matchKey !== "gifUrl") {
           // If the current value is there in this prop and it is not already there, then add in the related terms array
           if (
-            exercise[matchKey].includes(searchValue) &&
+            exercise[matchKey].startsWith(searchValue) &&
             !usedRelatedTerms.has(exercise[matchKey])
           ) {
             currentRelatedTerms.push(exercise[matchKey]);
@@ -130,10 +131,10 @@ const ExerciseSearchForm = ({ searchExerciseContainer }) => {
 
   return (
     <>
-      <div className="search-form-con">
-        <form className="search-form" onSubmit={handleForm}>
+      <div className={styles.searchFormCon}>
+        <form className={styles.searchForm} onSubmit={handleForm}>
           <input
-            className="search-txt"
+            className={styles.searchFormTxt}
             type="text"
             value={value}
             onChange={handleValue}
@@ -149,7 +150,7 @@ const ExerciseSearchForm = ({ searchExerciseContainer }) => {
                 ? { borderRadius: borderRadius.searchBtn.both }
                 : { borderRadius: borderRadius.searchBtn.onlyTop }
             }
-            className="search-btn"
+            className={styles.searchFormBtn}
             type="submit"
           >
             <span className="material-symbols-outlined">search</span>

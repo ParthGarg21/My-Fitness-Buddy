@@ -1,5 +1,7 @@
+import styles from "../styles/footer.module.css"
+
 const Footer = () => {
-  return <footer>Made by ❤️ by Parth Garg</footer>;
+  return <footer className={styles.footer}>Made by ❤️ by Parth Garg</footer>;
 };
 
 export default Footer;

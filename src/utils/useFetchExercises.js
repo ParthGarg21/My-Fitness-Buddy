@@ -30,17 +30,13 @@ const useFetchExercise = () => {
   const { setAllExercises } = useContext(exerciseContext);
 
   const fetchAllExercises = async () => {
-    if (window.localStorage.getItem("exercises") !== null) {
-      setAllExercises(JSON.parse(window.localStorage.getItem("exercises")));
-    } else {
-      try {
-        const res = await fetch(url, options);
-        const exercises = await res.json();
-        setAllExercises(exercises);
-        window.localStorage.setItem("exercises", JSON.stringify(exercises));
-      } catch (err) {
-        setAllExercises([]);
-      }
+    try {
+      const res = await fetch(url, options);
+      const exercises = await res.json();
+      setAllExercises(exercises);
+      window.localStorage.setItem("exercises", JSON.stringify(exercises));
+    } catch (err) {
+      setAllExercises([]);
     }
   };
 

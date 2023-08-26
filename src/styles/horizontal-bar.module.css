@@ -14,8 +14,8 @@
     gap: 3rem;
     z-index: 10;
     scroll-behavior: smooth;
-    padding: 2rem;
     color: #000;
+    padding: 40px;
 }
 
 .horizontalScrollInnerCon::-webkit-scrollbar {
@@ -61,8 +61,4 @@
 .videoArrow:hover {
     color: white;
     background-color: var(--body-color);
-}
-
-.videoInnerScroll {
-    padding: 40px;
 }

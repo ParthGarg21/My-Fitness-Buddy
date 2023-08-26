@@ -1,0 +1,18 @@
+.searchExercisesSection {
+    background-color: var(--body-color);
+}
+
+.searchExerciseCon {
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem 3rem;
+    align-items: center;
+    gap: 40px;
+}
+
+.searchTitle {
+    font-size: 3rem;
+    text-align: center;
+}

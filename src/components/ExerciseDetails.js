@@ -29,7 +29,7 @@ const ExerciseDetails = ({ exerciseDetails }) => {
           <img className="body-part-detail-icon" src={bodyPartImg} alt="" />
           <div className="detail-text">
             <span>Target Body Part :</span>
-            <span className="label label-detail">
+            <span className="label info-label">
               {toPascalCase(exerciseDetails.bodyPart)}
             </span>
           </div>
@@ -39,7 +39,7 @@ const ExerciseDetails = ({ exerciseDetails }) => {
           <img className="body-part-detail-icon" src={muscleImg} alt="" />
           <div className="detail-text">
             <span>Target Muscle :</span>
-            <span className="label label-detail">
+            <span className="label info-label">
               {toPascalCase(exerciseDetails.target)}
             </span>
           </div>
@@ -49,7 +49,7 @@ const ExerciseDetails = ({ exerciseDetails }) => {
           <img className="body-part-detail-icon" src={equipmentImg} alt="" />
           <div className="detail-text">
             <span>Equipment :</span>
-            <span className="label label-detail">
+            <span className="label info-label">
               {toPascalCase(exerciseDetails.equipment)}
             </span>
           </div>

@@ -1,0 +1,63 @@
+.paginationCon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.paginationPagesCon {
+    display: flex;
+    gap: 2rem;
+}
+
+.pages {
+    display: flex;
+    gap: 1rem;
+}
+
+.paginationBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--body-color);
+    height: 2.5rem;
+    width: 2.5rem;
+    border: none;
+    border-radius: 100%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: var(--first-color);
+    transition: all;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+
+.paginationBtn:hover {
+    background-color: var(--body-color-faded);
+}
+
+.activePage {
+    background-color: var(--body-color-faded);
+}
+
+.pageNavBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.disableBtn {
+    color: var(--body-color-faded);
+    cursor: not-allowed;
+}
+
+.currPageDisplay {
+    font-size: 1.25rem;
+    font-weight: 500;
+}

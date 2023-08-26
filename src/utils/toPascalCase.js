@@ -11,7 +11,7 @@ const toPascalCase = (str) => {
       newStr += s[0].toUpperCase() + s.substr(1) + " ";
     }
   }
-  return newStr;
+  return newStr.trim();
 };
 
 export default toPascalCase;

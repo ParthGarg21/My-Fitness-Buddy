@@ -11,6 +11,7 @@ import video4 from "../assets/videos/video-4.mp4";
 import video5 from "../assets/videos/video-5.mp4";
 import video6 from "../assets/videos/video-6.mp4";
 import video7 from "../assets/videos/video-7.mp4";
+import styles from "../styles/home.module.css";
 
 const HomeVideo = () => {
   const videos = [video1, video2, video3, video4, video5, video6, video7];
@@ -27,13 +28,13 @@ const HomeVideo = () => {
 
   return (
     <video
-      className="home-video-con"
+      className={styles.homeVideoCon}
       autoPlay={true}
       muted={true}
       onEnded={handleVideoChange}
       src={src}
     >
-      <source className="home-video" type="video/mp4" />
+      <source className={styles.homeVideo} type="video/mp4" />
     </video>
   );
 };

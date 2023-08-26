@@ -9,24 +9,10 @@ import BodyPartCard from "./BodyPartCard";
 import { exerciseContext } from "../context/ExerciseContext";
 import { scrollToBottom } from "../utils/scrollPage";
 import HorizontalScrollBar from "./HorizontalScrollBar";
+import styles from "../styles/bodypart.module.css";
 
 const BodyPartOptions = ({ searchExerciseContainer }) => {
   const { setAllVisibleExercises, allExercises } = useContext(exerciseContext);
-
-  const allBodyPartCards = allBodyParts.map((currBodyPart, idx) => {
-    return (
-      <button
-        className="body-part-card"
-        key={idx}
-        onClick={() => handleBodyPart(currBodyPart)}
-      >
-        <BodyPartCard
-          bodyPart={currBodyPart}
-          bodyPartImage={bodyPartImages[idx]}
-        />
-      </button>
-    );
-  });
 
   /**
    * When a user selects a bodypart, then all the exercises are searched through to get the target queries by the bodypart
@@ -38,6 +24,21 @@ const BodyPartOptions = ({ searchExerciseContainer }) => {
     scrollToBottom(searchExerciseContainer);
     setAllVisibleExercises([...exercises]);
   };
+
+  const allBodyPartCards = allBodyParts.map((currBodyPart, idx) => {
+    return (
+      <button
+        className={styles.bodyPartCard}
+        key={idx}
+        onClick={() => handleBodyPart(currBodyPart)}
+      >
+        <BodyPartCard
+          bodyPart={currBodyPart}
+          bodyPartImage={bodyPartImages[idx]}
+        />
+      </button>
+    );
+  });
 
   return <HorizontalScrollBar>{allBodyPartCards}</HorizontalScrollBar>;
 };

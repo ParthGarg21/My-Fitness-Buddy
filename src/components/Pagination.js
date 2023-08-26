@@ -12,7 +12,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { exerciseContext } from "../context/ExerciseContext";
-import styles from "../styles/pagination.styles.css";
+import styles from "../styles/pagination.module.css";
 import { scrollToTop } from "../utils/scrollPage";
 
 const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
@@ -61,7 +61,9 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
     pageButtons.push(
       <button
         key={i}
-        className={(page === i ? "active-page" : "") + " pagination-btn"}
+        className={
+          (page === i ? styles.activePage : "") + " " + styles.paginationBtn
+        }
         onClick={() => {
           if (i !== page) {
             handlePageClick(i);
@@ -77,8 +79,7 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
   const handlePreviousClick = () => {
     if (page !== 0) {
       setPage(page - 1);
-    scrollToTop(exerciseContainer);
-
+      scrollToTop(exerciseContainer);
     }
   };
 
@@ -86,32 +87,34 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
   const handleNextClick = () => {
     if (page + 1 < totalPages) {
       setPage(page + 1);
-    scrollToTop(exerciseContainer);
-
+      scrollToTop(exerciseContainer);
     }
   };
 
   return (
-    <section className="pagination-con">
-      <div className="pagination-pages-con">
+    <section className={styles.paginationCon}>
+      <div className={styles.paginationPagesCon}>
         <button
-          className={(page === 0 ? "disable-btn" : "") + " page-nav-btn prev"}
+          className={
+            (page === 0 ? styles.disableBtn : "") + " " + styles.pageNavBtn
+          }
           onClick={handlePreviousClick}
         >
           &lt;
         </button>
-        <div className="pages">{pageButtons}</div>
+        <div className={styles.pages}>{pageButtons}</div>
         <button
           className={
-            (page === totalPages - 1 ? "disable-btn" : "") +
-            " page-nav-btn next"
+            (page === totalPages - 1 ? styles.disableBtn : "") +
+            " " +
+            styles.pageNavBtn
           }
           onClick={handleNextClick}
         >
           &gt;
         </button>
       </div>
-      <span className="curr-page-display">
+      <span className={styles.currPageDisplay}>
         Page {page + 1} of {totalPages}
       </span>
     </section>

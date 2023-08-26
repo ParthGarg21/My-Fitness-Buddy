@@ -1,3 +1,7 @@
+/**
+ * Horizontal scroll bar component, which can take an array of jsx elements as children, and then render them in a horizontal scroll bar
+ */
+
 import { useRef } from "react";
 import horizonBarStyle from "../styles/horizontal-bar.module.css";
 
@@ -10,7 +14,6 @@ const HorizontalScrollBar = ({ children }) => {
   const handleRightScroll = () => {
     container.current.scrollBy(350, 0);
   };
-
 
   return (
     <div className={horizonBarStyle.horizontalScrollBar}>
@@ -33,9 +36,7 @@ const HorizontalScrollBar = ({ children }) => {
 
       <div
         className={
-          horizonBarStyle.horizontalScrollInnerCon +
-          " " +
-          horizonBarStyle.videoInnerScroll
+          horizonBarStyle.horizontalScrollInnerCon 
         }
         ref={container}
       >

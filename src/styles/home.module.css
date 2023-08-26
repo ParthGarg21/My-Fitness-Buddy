@@ -1,0 +1,86 @@
+.home {
+    position: relative;
+    height: 87.5%;
+    width: 100%;
+}
+
+.homeVideoCon {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.homeMenu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding-left: 3rem;
+    background-color: var(--first-color-light-home-bg);
+    color: var(--title-color);
+    backdrop-filter: blur(5px);
+}
+
+.homeContainer {
+    color: var(--title-color);
+    width: 70%;
+    padding-top: 3rem;
+    padding-right: 3rem;
+    height: 100%;
+}
+
+.homeImageContainer {
+    width: 30%;
+}
+
+.homeImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    display: block;
+}
+
+.homeContainer>* {
+    margin-top: 2rem;
+}
+
+.homeTitle {
+    font-size: 4rem;
+    background-color: var(--first-color-dark);
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.homeContent {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color-black);
+    width: fit-content;
+}
+
+.homeBtn {
+    background-color: var(--title-color-black);
+    outline: none;
+    border: none;
+    padding: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+.homeBtn:hover {
+    color: var(--first-color-alt);
+    background: #000;
+}
