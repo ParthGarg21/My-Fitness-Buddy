@@ -4,6 +4,7 @@ import RelatedVideoCard from "./RelatedVideoCard";
 import toPascalCase from "../utils/toPascalCase";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 import { BarLoader } from "react-spinners";
+import loadingStyles from "../styles/loading.module.css";
 
 const RelatedVideos = ({ exerciseName }) => {
   const [videos, setVideos] = useState(null);
@@ -25,12 +26,17 @@ const RelatedVideos = ({ exerciseName }) => {
       <h1 className="related-content-title">
         Watch{" "}
         <span className="info-label">{toPascalCase(exerciseName).trim()}</span>{" "}
-        related videos :{" "}
+        related videos:
       </h1>
       {videos === null ? (
-        <BarLoader color="#000000" />
+        <div className={loadingStyles.videosLoadingCon}>
+          <h1 className={loadingStyles.loadingText}>Loading Videos...</h1>
+          <BarLoader className={loadingStyles.loader} color="#000000" />
+        </div>
       ) : videos.length === 0 ? (
-        "No videos found!"
+        <div className={loadingStyles.notFoundCon}>
+          <h1 className={loadingStyles.notFoundText}>No videos found!</h1>
+        </div>
       ) : (
         <HorizontalScrollBar>{relatedVideoCards}</HorizontalScrollBar>
       )}

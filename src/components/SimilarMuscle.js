@@ -3,6 +3,8 @@ import { exerciseContext } from "../context/ExerciseContext";
 import ExerciseCard from "./ExerciseCard";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 import { Link } from "react-router-dom";
+import loadingStyles from "../styles/loading.module.css";
+
 const SimilarMuscle = ({ target, id }) => {
   const { allVisibleExercises } = useContext(exerciseContext);
   const similarExercises = allVisibleExercises.filter(
@@ -24,7 +26,13 @@ const SimilarMuscle = ({ target, id }) => {
       <h1 className="related-content-title">
         Exercises that target similar muscles:
       </h1>
-      <HorizontalScrollBar>{similarExercisesCards}</HorizontalScrollBar>
+      {similarExercises.length === 0 ? (
+        <div className={loadingStyles.notFoundCon}>
+          <h1 className={loadingStyles.notFoundText}>No exercises found!</h1>
+        </div>
+      ) : (
+        <HorizontalScrollBar>{similarExercisesCards}</HorizontalScrollBar>
+      )}
     </section>
   );
 };

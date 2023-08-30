@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    color: var(--title-color);
+    color: var(--primary-color);
 }
 
 .horizontalScrollInnerCon {
@@ -11,7 +11,7 @@
     width: 85%;
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 3rem;
+    gap: 48px;
     z-index: 10;
     scroll-behavior: smooth;
     color: #000;
@@ -30,35 +30,44 @@
 }
 
 .conNav {
-    font-weight: 900;
-    font-size: 2rem;
     border-radius: 100%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 40px;
+    height: 40px;
     display: flex;
-    background-color: var(--body-color);
     align-items: center;
     justify-content: center;
     border: none;
-    color: var(--title-color);
+    color: var(--primary-color);
     cursor: pointer;
-}
-
-.conNav:hover {
-    background-color: var(--title-color);
-    color: var(--body-color);
+    background-color: var(--body-color)
 }
 
 .rightArrow {
     justify-self: center;
 }
 
-.videoArrow {
-    color: var(--body-color);
-    background-color: white;
+.navIcon {
+    font-variation-settings:
+        'opsz' 40
 }
 
-.videoArrow:hover {
-    color: white;
-    background-color: var(--body-color);
+@media screen and (max-width: 700px) {
+    .conNav {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .horizontalScrollInnerCon {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .conNav {
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+    }
+
 }

@@ -6,6 +6,7 @@ import toPascalCase from "../utils/toPascalCase";
 import styles from "../styles/exercisecard.module.css";
 import { useState } from "react";
 import { Oval } from "react-loader-spinner";
+import loadingStyles from "../styles/loading.module.css";
 
 const ExerciseCard = ({ exercise }) => {
   /**
@@ -33,14 +34,14 @@ const ExerciseCard = ({ exercise }) => {
     <>
       <h1 className={styles.exerciseName}>{shortenedName}</h1>
       <img
-        className={styles.exerciseImg + " " + (isLoading ? "image-loading" : "")}
+        className={styles.exerciseImg + " " + (isLoading ? loadingStyles.imageLoading : "")}
         src={exercise.gifUrl}
         alt=""
         onLoad={handleLoad}
       />
 
       {isLoading ? (
-        <div className="image-loading-con">
+        <div className={loadingStyles.imageLoadingCon}>
           <Oval
             height={80}
             width={80}
@@ -49,7 +50,7 @@ const ExerciseCard = ({ exercise }) => {
             strokeWidth={2}
             strokeWidthSecondary={2}
           />
-          <h1 className="image-loading-text">Loading...</h1>
+          <h1 className={loadingStyles.loadingText}>Loading...</h1>
         </div>
       ) : (
         ""

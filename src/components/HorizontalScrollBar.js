@@ -21,25 +21,16 @@ const HorizontalScrollBar = ({ children }) => {
         className={horizonBarStyle.navCon + " " + horizonBarStyle.leftBtnCon}
       >
         <span
-          className={
-            horizonBarStyle.conNav +
-            " " +
-            horizonBarStyle.leftArrow +
-            " " +
-            horizonBarStyle.videoArrow
-          }
+          className={horizonBarStyle.conNav + " " + horizonBarStyle.leftArrow}
           onClick={handLeftScroll}
         >
-          <span className="material-symbols-outlined">chevron_left</span>
+          <span className={"material-symbols-outlined" + " " + horizonBarStyle.navIcon}>
+            chevron_left
+          </span>
         </span>
       </div>
 
-      <div
-        className={
-          horizonBarStyle.horizontalScrollInnerCon 
-        }
-        ref={container}
-      >
+      <div className={horizonBarStyle.horizontalScrollInnerCon} ref={container}>
         {children}
       </div>
 
@@ -47,16 +38,12 @@ const HorizontalScrollBar = ({ children }) => {
         className={horizonBarStyle.navCon + " " + horizonBarStyle.rightBtnCon}
       >
         <span
-          className={
-            horizonBarStyle.conNav +
-            " " +
-            horizonBarStyle.rightArrow +
-            " " +
-            horizonBarStyle.videoArrow
-          }
+          className={horizonBarStyle.conNav + " " + horizonBarStyle.rightArrow}
           onClick={handleRightScroll}
         >
-          <span className="material-symbols-outlined">chevron_right</span>
+          <span className={"material-symbols-outlined" + " " + horizonBarStyle.navIcon}>
+            chevron_right
+          </span>
         </span>
       </div>
     </div>

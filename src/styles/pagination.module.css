@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding-top: 1rem;
+    gap: 16px;
+    padding-top: 16px;
 }
 
 .paginationPagesCon {
     display: flex;
-    gap: 2rem;
+    gap: 32px;
 }
 
 .pages {
@@ -60,4 +60,23 @@
 .currPageDisplay {
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+
+    .paginationBtn {
+        height: 2rem;
+        width: 2rem;
+        font-size: 1rem;
+    }
+
+    .paginationPagesCon {
+        gap: 16px;
+    }
+
+    .pages {
+        display: flex;
+        gap: 8px;
+    }
+    
 }

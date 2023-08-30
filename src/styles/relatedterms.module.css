@@ -12,7 +12,7 @@
   
   .relatedTerm {
     height: 50px;
-    color: var(--text-color-light);
+    color: var(--primary-color-light);
     list-style: none;
     border-top: 1px solid rgb(248, 248, 248);
     border-bottom: 1px solid rgb(248, 248, 248);

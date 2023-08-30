@@ -28,10 +28,12 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
    *  When the number of page buttons that can be displayed changes (when the exercises change either by searching or selecting a body part)
    *  then reset the page range to [0, displayPages - 1]
    */
+
+
   useEffect(() => {
+    console.log("Yes, display changed to : " + displayPages);
     setStartIndex(0);
     setEndIndex(displayPages - 1);
-    console.log("Changed display pages to : " + displayPages);
   }, [displayPages]);
 
   // If the current page gets out of range, then move the range
@@ -45,8 +47,6 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
       setEndIndex(endIndex + 1);
     }
   }, [page]);
-
-  // Function to scroll to the top of the grid section on a button click by getting the pageX and pageY for the exercise container
 
   // Function to handle page select
   const handlePageClick = (pageNo) => {

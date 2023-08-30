@@ -1,18 +1,31 @@
-.searchExercisesSection {
-    background-color: var(--body-color);
-}
-
 .searchExerciseCon {
-    color: white;
+    color: var(--primary-color);
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 5rem 3rem;
+    padding: 80px 48px;
     align-items: center;
     gap: 40px;
+    background-color: var(--body-color);
 }
 
 .searchTitle {
-    font-size: 3rem;
+    font-size: 48px;
     text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .searchTitle {
+        font-size: 36px;
+    }  
+}
+
+@media screen and (max-width: 600px) {
+    .searchExerciseCon {
+        padding: 80px 20px;
+    }
+
+    .searchTitle {
+        font-size: 30px;
+    }
 }

@@ -11,6 +11,7 @@ import { exerciseContext } from "../context/ExerciseContext";
 import { BarLoader } from "react-spinners";
 import useFetchExercise from "../utils/useFetchExercises";
 import Exercises from "./Exercises";
+import loadingStyles from "../styles/loading.module.css";
 
 const SearchExcercise = () => {
   const { allExercises } = useContext(exerciseContext);
@@ -20,19 +21,17 @@ const SearchExcercise = () => {
   const searchExerciseContainer = useRef(null);
   return (
     <>
-      <section
-        id="search-exercises"
-        className={styles.searchExercisesSection}
-        ref={searchExerciseContainer}
-      >
+      <section id="search-exercises" ref={searchExerciseContainer}>
         {allExercises.length === 0 ? (
           <section className={styles.searchExerciseCon}>
-            <h1 className="loading-text">Loading the functionalities</h1>
+            <h1 className={loadingStyles.loadingText}>
+              Loading the functionalities
+            </h1>
             <BarLoader
               color="#ffffff"
               height={5}
               width={250}
-              className="loader"
+              className={loadingStyles.loader}
             />
           </section>
         ) : (

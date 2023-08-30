@@ -22,14 +22,17 @@ html {
   --first-color-light: hsl(79, 97%, 77%);
   --first-color-alt: hsl(79, 67%, 52%);
   --first-color-dark: hsl(79, 63%, 50%);
-  --first-color-gray: hsl(79, 6%, 64%);
-  --title-color: hsl(180, 4%, 98%);
+  --first-color-light-home-bg: hsla(79, 72%, 55%, 0.286);
+
   --title-color-black: hsl(180, 4%, 12%);
-  --text-color: hsl(180, 4%, 72%);
-  --text-color-light: hsl(180, 4%, 65%);
+
+  --primary-color: white;
+  --primary-color-light: hsl(180, 4%, 65%);
+
   --body-color: hsl(180, 12%, 8%);
   --body-color-faded: hsla(180, 12%, 8%, 0.154);
-  --first-color-light-home-bg: hsla(79, 72%, 55%, 0.286);
+
+
   height: 100%;
   width: 100%;
 }
@@ -50,7 +53,7 @@ body {
 */
 
 .exercises {
-  padding: 5rem 3rem;
+  padding: 80px 48px;
   background-color: var(--first-color);
 }
 
@@ -82,7 +85,7 @@ body {
   background-color: var(--body-color);
   transition: all;
   transition-duration: 0.3s;
-  width: 350px;
+  width: min(350px, 100%);
   flex-shrink: 0;
   border: 2px solid var(--body-color);
 }
@@ -106,7 +109,8 @@ body {
 }
 
 .label-head {
-  width: max-content;
+  font-size: 14px;
+  width: min-content;
 }
 
 .label {
@@ -114,31 +118,30 @@ body {
   border-radius: 4px;
   background-color: var(--first-color-dark);
   color: var(--body-color);
-  width: fit-content;
+  width: min-content;
   text-align: center;
+  font-size: 16px;
 }
 
 /* Exercise details */
 .exercise-info {
   background-color: var(--first-color);
   color: var(--body-color);
-  padding: 0 3rem;
+  padding: 0 48px;
   min-height: 87.5%;
 }
 
 .exercise-details-con {
   display: flex;
   gap: 5rem;
-  height: 87.5vh;
   align-items: center;
+  padding: 48px 0;
 }
-
 
 .exercise-details-item {
   flex: 1;
   display: flex;
 }
-
 
 .exercise-details-img {
   border: 2px solid;
@@ -155,7 +158,6 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 32px;
-  flex-shrink: 20;
 }
 
 .exercise-detail-name {
@@ -177,9 +179,9 @@ body {
 }
 
 .body-part-detail-icon {
-  width: 4.5rem;
+  width: 72px;
   object-fit: contain;
-  padding: .5rem;
+  padding: 8px;
   border: 2px solid;
   border-radius: 100%;
 }
@@ -188,6 +190,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-size: 20px;
 }
 
 /* Related Videos */
@@ -196,12 +199,13 @@ body {
 }
 
 .related-content-title {
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: 500;
+  line-height: 2;
 }
 
 .video-card {
-  width: 350px;
+  width: min(100%, 350px);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -215,7 +219,6 @@ body {
   background-color: var(--body-color);
   color: var(--first-color);
   border: 2px solid var(--body-color);
-
 }
 
 .video-card:hover {
@@ -272,50 +275,91 @@ body {
 }
 
 
-/* Loaders */
+/* Related Exercises media queries */
 
-.loading-text {
-  font-size: 30px;
-  font-weight: 500;
+@media screen and (max-width: 1200px) {
+  .exercise-detail-name {
+    font-size: 48px;
+    font-weight: 500;
+  }
+
+  .related-content-title {
+    font-size: 2.25rem;
+  }
 }
 
-.loader {
-  border-radius: 8px;
+
+@media screen and (max-width: 1000px) {
+  .exercise-detail-name {
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .related-content-title {
+    font-size: 32px;
+  }
 }
 
-.image-loading {
-  display: none;
+
+@media screen and (max-width: 900px) {
+  .exercise-details-con {
+    gap: 50px;
+    flex-direction: column-reverse;
+  }
+
+  .related-content-title {
+    font-size: 1.75rem;
+  }
+
+  .exercise-details-item {
+    width: 100%;
+  }
+
+  .detail-text {
+    font-size: 16px;
+  }
+
+  .related-content-title {
+    line-height: 1.5;
+  }
 }
 
-.image-loading-con {
-  height: 25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+@media screen and (max-width: 500px) {
+  .exercise-info {
+    padding: 0 20px;
+  }
+
+  .detail-text {
+    font-size: 14px;
+  }
+
+  .body-part-detail-icon {
+    width: 60px;
+  }
+
+  .exercise-details-img {
+    height: 500px;
+  }
+
+  .video-title {
+    font-size: 16px;
+    height: 80px;
+  }
+
+  .video-details {
+    font-size: 16px;
+  }
+
+  .video-desc {
+    font-size: 16px;
+  }
+
+  .video-desc-title {
+    font-size: 16px;
+  }
 }
 
-.thumbnail-loading-con {
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.image-loading-text, .thumbnail-loading-text {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.info-loading-con {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 87.5vh;
-  gap: 30px;
+/* Exercises media queries */
+.exercises {
+  padding: 80px 20px;
 }

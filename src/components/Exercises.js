@@ -13,9 +13,6 @@ import { Link } from "react-router-dom";
 // Number of exercises per page
 const EXERCISES_PER_PAGE = 20;
 
-// Maximum number of page that can be displayed as pagination at a time
-const MAX_PAGINATION_PAGES = 8;
-
 const Exercises = () => {
   const exerciseContainer = useRef(null);
   const renders = useRef(1);
@@ -44,8 +41,15 @@ const Exercises = () => {
   // Thus, passing the updated number to the "Pagination" component so that it can display the correct numbers
   useEffect(() => {
     setPage(0);
+    const width = document.clientWidth;
+    // Maximum number of page that can be displayed as pagination at a time
+    const MAX_PAGINATION_PAGES = width > 600 ? 8 : 6;
     setDisplayPages(Math.min(MAX_PAGINATION_PAGES, totalPages));
   }, [allVisibleExercises]);
+
+  useEffect(() => {
+    setPage(0);
+  });
 
   return (
     <section ref={exerciseContainer} className="exercises" id="exercises">

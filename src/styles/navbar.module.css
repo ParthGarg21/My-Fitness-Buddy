@@ -1,10 +1,18 @@
 .navBar {
+    position: relative;
+    z-index: 2;
+    height: 100px;
+}
+
+.innerContainer {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3rem;
+    padding: 0 48px;
     background-color: var(--title-color-black);
-    height: 12.5%;
+    position: relative;
+    z-index: 2;
 }
 
 .logoCon {
@@ -14,12 +22,13 @@
 }
 
 .logoTitle {
-    color: var(--title-color);
-    font-weight: 800;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 35px;
 }
 
 .logo {
-    height: 4.5rem;
+    height: 64px;
 }
 
 .navMenu {
@@ -27,20 +36,131 @@
     list-style: none;
     align-items: center;
     gap: 40px;
-    font-size: 1.25rem;
+    font-size: 18px;
     text-decoration: none;
-    height: 3rem;
 }
 
 .navLink {
     height: 100%;
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    padding: 8px 16px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .navLink:hover {
     color: var(--first-color-alt);
     border-bottom: 2px solid;
+}
+
+.hamburger {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes expand {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: 100px;
+    }
+}
+
+@keyframes expand-smaller {
+    0% {
+        top: 0px;
+    }
+
+    100% {
+        top: 70px;
+    }
+}
+
+
+.mobileMenuContainer {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--title-color-black);
+    z-index: 1;
+    padding: 16px 48px;
+    animation-name: expand;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.mobileMenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Navbar Media Queries */
+@media screen and (max-width: 1200px) {
+    .logoTitle {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .logoTitle {
+        font-size: 25px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .navMenu {
+        display: none;
+    }
+
+    .hamburger {
+        display: revert;
+    }
+
+    .mobileMenuContainer {
+        display: revert;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .logoTitle {
+        font-size: 20px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .navBar {
+        height: 70px;
+    }
+
+    .innerContainer {
+        padding: 0 20px;
+    }
+
+    .mobileMenuContainer {
+        animation-name: expand-smaller;
+    }
+    
+}
+
+
+@media screen and (max-width: 350px) {
+    .logoTitle {
+        font-size: 15px;
+    }
+
+    .logo {
+        height: 30px;
+    }
 }

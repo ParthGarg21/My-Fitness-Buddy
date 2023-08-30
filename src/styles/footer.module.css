@@ -1,7 +1,48 @@
 footer {
-    padding: 2rem;
+    padding: 20px 0;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 20px;
     background-color: var(--body-color);
-    color: white;
+    color: var(--primary-color);
+}
+
+/* Footer Media Queries */
+@media screen and (max-width: 1200px) {
+    /* .logoTitle {
+        font-size: 30px;
+    } */
+}
+
+@media screen and (max-width: 800px) {
+    /* .logoTitle {
+        font-size: 25px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .navMenu {
+        display: none;
+    }
+
+    .hamburger {
+        display: revert;
+    }
+
+    .mobileMenuContainer {
+        display: revert;
+    } */
+}
+
+
+@media screen and (max-width: 500px) {
+    
+    footer {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
 }

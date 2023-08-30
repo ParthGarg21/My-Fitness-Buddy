@@ -13,6 +13,7 @@
 
 import { useState } from "react";
 import { Oval } from "react-loader-spinner";
+import loadingStyles from "../styles/loading.module.css"
 
 const RelatedVideoCard = ({ video }) => {
   const {
@@ -38,10 +39,10 @@ const RelatedVideoCard = ({ video }) => {
   return (
     <a className="video-card" href={videoUrl} target="_blank" rel="noreferrer">
       <h1 className="video-title">{shortenTitle}</h1>
-      <img src={url} className={"video-thumbnail " + (isLoading ? "image-loading" : "")} onLoad={handleLoad}/>
+      <img alt="" src={url} className={"video-thumbnail " + (isLoading ? loadingStyles.imageLoading : "")} onLoad={handleLoad}/>
 
       {isLoading ? (
-        <div className="thumbnail-loading-con">
+        <div className={loadingStyles.thumbnailLoadingCon}>
           <Oval
             height={80}
             width={80}
@@ -50,7 +51,7 @@ const RelatedVideoCard = ({ video }) => {
             strokeWidth={2}
             strokeWidthSecondary={2}
           />
-          <h1 className="thumbnail-loading-text">Loading...</h1>
+          <h1 className={loadingStyles.loadingText}>Loading...</h1>
         </div>
       ) : (
         ""
