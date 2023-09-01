@@ -1,0 +1,117 @@
+.exerciseDetailsCon {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    padding: 48px 0;
+}
+
+.exerciseDetailsItem {
+    flex: 1;
+    display: flex;
+}
+
+.exerciseDetailsImg {
+    border: 2px solid;
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 1rem;
+    box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exerciseDescriptionCon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.exerciseDetailName {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.exerciseDesc {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.exerciseDetailTarget {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.bodyPartDetailIcon {
+    width: 72px;
+    object-fit: contain;
+    padding: 8px;
+    border: 2px solid;
+    border-radius: 100%;
+}
+
+.detailText {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .exerciseDetailName {
+        font-size: 48px;
+        font-weight: 500;
+    }
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .exerciseDetailName {
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+}
+
+
+@media screen and (max-width: 900px) {
+    .exerciseDetailsCon {
+        gap: 50px;
+        flex-direction: column-reverse;
+    }
+
+    .relatedContentTitle {
+        font-size: 1.75rem;
+    }
+
+    .exerciseDetailsItem {
+        width: 100%;
+    }
+
+    .detailText {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .exerciseInfo {
+        padding: 0 20px;
+    }
+
+    .detailText {
+        font-size: 14px;
+    }
+
+    .bodyPartDetailIcon {
+        width: 60px;
+    }
+
+    .exerciseDetailsImg {
+        height: 500px;
+    }
+}

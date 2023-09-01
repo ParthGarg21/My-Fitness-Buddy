@@ -21,11 +21,14 @@
 }
 
 @media screen and (max-width: 600px) {
-    .searchExerciseCon {
-        padding: 80px 20px;
-    }
 
     .searchTitle {
         font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .searchExerciseCon {
+        padding: 80px 20px;
     }
 }

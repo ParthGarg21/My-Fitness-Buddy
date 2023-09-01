@@ -1,0 +1,33 @@
+/* Related Content */
+.relatedContentContainer {
+    padding-bottom: 80px;
+}
+
+.relatedContentTitle {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 2;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .relatedContentTitle {
+        font-size: 2.25rem;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .relatedContentTitle {
+        font-size: 32px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .relatedContentTitle {
+        font-size: 1.75rem;
+        line-height: 1.5;
+    }
+
+}

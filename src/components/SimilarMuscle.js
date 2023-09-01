@@ -4,6 +4,8 @@ import ExerciseCard from "./ExerciseCard";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 import { Link } from "react-router-dom";
 import loadingStyles from "../styles/loading.module.css";
+import similarExerciseStyles from "../styles/similarexercises.module.css"
+import relatedContentStyles from "../styles/relatedcontent.module.css"
 
 const SimilarMuscle = ({ target, id }) => {
   const { allVisibleExercises } = useContext(exerciseContext);
@@ -13,8 +15,8 @@ const SimilarMuscle = ({ target, id }) => {
 
   const similarExercisesCards = similarExercises.map((exercise) => {
     return (
-      <article className="related-exercise-card" key={exercise.id}>
-        <Link to={`/exercise/${exercise.id}`} className="exercise-card-link">
+      <article className={similarExerciseStyles.relatedExerciseCard} key={exercise.id}>
+        <Link to={`/exercise/${exercise.id}`} className={similarExerciseStyles.exerciseCardLink}>
           <ExerciseCard exercise={exercise} />
         </Link>
       </article>
@@ -22,8 +24,8 @@ const SimilarMuscle = ({ target, id }) => {
   });
 
   return (
-    <section className="related-content-container">
-      <h1 className="related-content-title">
+    <section className={relatedContentStyles.relatedContentContainer}>
+      <h1 className={relatedContentStyles.relatedContentTitle}>
         Exercises that target similar muscles:
       </h1>
       {similarExercises.length === 0 ? (

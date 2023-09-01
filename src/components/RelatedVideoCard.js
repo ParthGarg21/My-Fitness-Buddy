@@ -13,7 +13,8 @@
 
 import { useState } from "react";
 import { Oval } from "react-loader-spinner";
-import loadingStyles from "../styles/loading.module.css"
+import loadingStyles from "../styles/loading.module.css";
+import videoStyles from "../styles/videocard.module.css";
 
 const RelatedVideoCard = ({ video }) => {
   const {
@@ -37,9 +38,23 @@ const RelatedVideoCard = ({ video }) => {
   };
 
   return (
-    <a className="video-card" href={videoUrl} target="_blank" rel="noreferrer">
-      <h1 className="video-title">{shortenTitle}</h1>
-      <img alt="" src={url} className={"video-thumbnail " + (isLoading ? loadingStyles.imageLoading : "")} onLoad={handleLoad}/>
+    <a
+      className={videoStyles.videoCard}
+      href={videoUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <h1 className={videoStyles.videoTitle}>{shortenTitle}</h1>
+      <img
+        alt=""
+        src={url}
+        className={
+          videoStyles.videoThumbnail +
+          " " +
+          (isLoading ? loadingStyles.imageLoading : "")
+        }
+        onLoad={handleLoad}
+      />
 
       {isLoading ? (
         <div className={loadingStyles.thumbnailLoadingCon}>
@@ -57,19 +72,21 @@ const RelatedVideoCard = ({ video }) => {
         ""
       )}
 
-      <div className="video-details">
-        <p className="video-desc">
-          <span className="video-desc-title">Channel Name:</span> {channelName}
+      <div className={videoStyles.videoDetails}>
+        <p className={videoStyles.videoDesc}>
+          <span className={videoStyles.videoDescTitle}>Channel Name:</span>{" "}
+          {channelName}
         </p>
-        <p className="video-desc">
-          <span className="video-desc-title">Video Description:</span>{" "}
+        <p className={videoStyles.videoDesc}>
+          <span className={videoStyles.videoDescTitle}>Video Description:</span>{" "}
           {description}
         </p>
-        <p className="video-desc">
-          <span className="video-desc-title">Video Length:</span> {lengthText}
+        <p className={videoStyles.videoDesc}>
+          <span className={videoStyles.videoDescTitle}>Video Length:</span>{" "}
+          {lengthText}
         </p>
-        <p className="video-desc">
-          <span className="video-desc-title">Total Views:</span>{" "}
+        <p className={videoStyles.videoDesc}>
+          <span className={videoStyles.videoDescTitle}>Total Views:</span>{" "}
           {viewCountText.split(" ")[0]}
         </p>
       </div>

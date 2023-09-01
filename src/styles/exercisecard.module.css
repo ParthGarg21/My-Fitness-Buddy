@@ -20,9 +20,6 @@
     gap: 10px;
     font-weight: 500;
     font-size: 16px;
-    /* background-color: red; */
-    /* word-break: break-all; */
-    /* hyphens: auto; */
 }
 
 @media screen and (max-width: 500px) {
@@ -33,6 +30,5 @@
     .definition {
         font-size: 14px;
         padding: 0 8px;
-
     }
 }

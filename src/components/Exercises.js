@@ -9,6 +9,7 @@ import { exerciseContext } from "../context/ExerciseContext";
 import ExerciseCard from "./ExerciseCard";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
+import styles from "../styles/exercises.module.css";
 
 // Number of exercises per page
 const EXERCISES_PER_PAGE = 20;
@@ -52,7 +53,11 @@ const Exercises = () => {
   });
 
   return (
-    <section ref={exerciseContainer} className="exercises" id="exercises">
+    <section
+      ref={exerciseContainer}
+      className={styles.exercises}
+      id="exercises"
+    >
       <h1>
         {renders.current === 1
           ? "Try to search something (like: biceps, barbell, chest, etc) or just select a body part!"
@@ -62,13 +67,13 @@ const Exercises = () => {
       </h1>
       {allVisibleExercises.length !== 0 && (
         <>
-          <section className="exercises-container">
+          <section className={styles.exercisesContainer}>
             {currDisplayingExercises.map((exercise) => {
               return (
-                <article className="exercise-card" key={exercise.id}>
+                <article className={styles.exerciseCard} key={exercise.id}>
                   <Link
                     to={`/exercise/${exercise.id}`}
-                    className="exercise-card-link"
+                    className={styles.exerciseCardLink}
                   >
                     <ExerciseCard exercise={exercise} />
                   </Link>

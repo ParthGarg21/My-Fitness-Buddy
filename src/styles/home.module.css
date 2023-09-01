@@ -1,8 +1,10 @@
 .home {
     position: relative;
-    height: 87.5%;
+    height: 850px;
     width: 100%;
     z-index: 1;
+
+    border: 10px solid red;
 }
 
 .homeVideoCon {
@@ -107,6 +109,10 @@
         font-size: 3.5rem;
     }
 
+
+}
+
+@media screen and (max-width: 500px) {
     .homeMenu {
         padding-left: 20px;
         padding-right: 20px;

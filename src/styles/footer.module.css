@@ -7,42 +7,9 @@ footer {
 }
 
 /* Footer Media Queries */
-@media screen and (max-width: 1200px) {
-    /* .logoTitle {
-        font-size: 30px;
-    } */
-}
 
-@media screen and (max-width: 800px) {
-    /* .logoTitle {
-        font-size: 25px;
-    }
-
-    .logo {
-        height: 50px;
-    }
-
-    .navMenu {
-        display: none;
-    }
-
-    .hamburger {
-        display: revert;
-    }
-
-    .mobileMenuContainer {
-        display: revert;
-    } */
-}
-
-
-@media screen and (max-width: 500px) {
-    
+@media screen and (max-width: 500px) { 
     footer {
         font-size: 16px;
     }
-}
-
-
-@media screen and (max-width: 350px) {
 }
