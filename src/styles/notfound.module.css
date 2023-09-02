@@ -1,0 +1,8 @@
+.notFoundCon {
+    height: 87.5vh;
+    background-color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

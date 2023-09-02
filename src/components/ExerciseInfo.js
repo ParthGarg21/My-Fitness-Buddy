@@ -7,6 +7,7 @@ import SimilarEquipment from "./SimilarEquipment";
 import SimilarMuscle from "./SimilarMuscle";
 import { BarLoader } from "react-spinners";
 import loadingStyles from "../styles/loading.module.css";
+import styles from "../styles/notfound.module.css";
 
 /**
  * Exercise contains the following data:
@@ -42,6 +43,11 @@ const ExerciseInfo = () => {
             width={250}
             className={loadingStyles.loader}
           />
+        </div>
+      ) : exerciseDetails.err !== undefined ? (
+        <div className={styles.notFoundCon}>
+          <h1>OOPS 404!</h1>
+          <p>not found</p>
         </div>
       ) : (
         <>

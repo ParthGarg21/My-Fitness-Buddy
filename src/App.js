@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import "./styles/index.css";
 import { Route, Routes } from "react-router-dom";
 import ExerciseInfo from "./components/ExerciseInfo";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:exerciseId" element={<ExerciseInfo />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
