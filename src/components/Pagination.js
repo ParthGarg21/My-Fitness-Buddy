@@ -31,7 +31,6 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
 
 
   useEffect(() => {
-    console.log("Yes, display changed to : " + displayPages);
     setStartIndex(0);
     setEndIndex(displayPages - 1);
   }, [displayPages]);
