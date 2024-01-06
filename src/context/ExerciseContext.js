@@ -27,7 +27,6 @@ const ExerciseContextWrapper = ({ children }) => {
   // state to store the current visible page
   const [page, setPage] = useState(0);
   
-
   return (
     <exerciseContext.Provider
       value={{

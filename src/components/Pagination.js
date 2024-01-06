@@ -16,41 +16,49 @@ import styles from "../styles/pagination.module.css";
 import { scrollToTop } from "../utils/scrollPage";
 
 const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
+  /**
+   * page --> current page index
+   * startIndex --> starting index of the buttons
+   * endIndex --> ending index of the buttons
+   * totalPages --> total number of exercise pages
+   * displayPages --> number of pagination buttons that can be displayed at a time
+   */
+
   // Getting the state from the exercise context
   const { page, setPage } = useContext(exerciseContext);
 
   // Storing the current range using indices and storing them as "states" so that their values prevail during multiple renders
   // Initialize them by '0'
-  const [startIndex, setStartIndex] = useState(() => 0);
-  const [endIndex, setEndIndex] = useState(() => 0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(0);
 
   /**
    *  When the number of page buttons that can be displayed changes (when the exercises change either by searching or selecting a body part)
    *  then reset the page range to [0, displayPages - 1]
    */
 
-
   useEffect(() => {
     setStartIndex(0);
     setEndIndex(displayPages - 1);
   }, [displayPages]);
 
-  // If the current page gets out of range, then move the range
-  useEffect(() => {
-    if (page === startIndex - 1) {
+  // Function to handle the range change if the next page is beyond the current range
+  const handleRangeChange = (nextPage) => {
+    if (nextPage === startIndex - 1) {
       setStartIndex(startIndex - 1);
       setEndIndex(endIndex - 1);
     }
-    if (page === endIndex + 1) {
+    if (nextPage === endIndex + 1) {
       setStartIndex(startIndex + 1);
       setEndIndex(endIndex + 1);
     }
-  }, [page]);
+  };
 
   // Function to handle page select
   const handlePageClick = (pageNo) => {
     scrollToTop(exerciseContainer);
     setPage(pageNo);
+    handleRangeChange(pageNo);
   };
 
   // Rendering the required pages only
@@ -79,6 +87,7 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
     if (page !== 0) {
       setPage(page - 1);
       scrollToTop(exerciseContainer);
+      handleRangeChange(page - 1);
     }
   };
 
@@ -87,6 +96,7 @@ const Pagination = ({ totalPages, displayPages, exerciseContainer }) => {
     if (page + 1 < totalPages) {
       setPage(page + 1);
       scrollToTop(exerciseContainer);
+      handleRangeChange(page + 1);
     }
   };
 

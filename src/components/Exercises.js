@@ -15,6 +15,16 @@ import styles from "../styles/exercises.module.css";
 const EXERCISES_PER_PAGE = 20;
 
 const Exercises = () => {
+  /**
+   * allVisibleExercises --> all the exercises that are visible for the current search
+   * totalPages --> total number of exercise pages
+   * displayPages --> number of pagination buttons that can be displayed at a time
+   * page --> current page index
+   * startIndex --> starting index of the exercises to be displayed
+   * endIndex --> ending index of the exercises to be displayed
+   * currDisplayingExercises --> array of exercises to be displayed on the current page
+   */
+
   const exerciseContainer = useRef(null);
   const renders = useRef(1);
 
@@ -47,10 +57,6 @@ const Exercises = () => {
     const MAX_PAGINATION_PAGES = width > 600 ? 8 : 6;
     setDisplayPages(Math.min(MAX_PAGINATION_PAGES, totalPages));
   }, [allVisibleExercises]);
-
-  useEffect(() => {
-    setPage(0);
-  });
 
   return (
     <section
