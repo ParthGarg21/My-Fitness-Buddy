@@ -20,4 +20,4 @@ The main purpose of this web app is to enable users to search exercises and know
 Used ReactJS, JavaScript, CSS, RapidAPI, ExerciseDB API and Youtube Search and Download API.
 
 The site is live at:
-https://my-fitness-buddy-app.netlify.app/
+https://main--my-fitness-buddy-app.netlify.app/
