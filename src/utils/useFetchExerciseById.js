@@ -14,6 +14,8 @@ import { useEffect } from "react";
  * target
  */
 
+// fetch a particular exercise by its id
+// set in the exercise details state
 const useFetchExerciseById = (exerciseId, setExerciseDetails) => {
   const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${exerciseId}`;
 

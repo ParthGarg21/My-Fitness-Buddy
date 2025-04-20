@@ -18,6 +18,8 @@ import { useEffect } from "react";
  * videoId
  */
 
+
+// fetches videos from youtube using the youtube-search-and-download api
 const useFetchVideos = (exerciseName, setVideos) => {
   const url = `https://youtube-search-and-download.p.rapidapi.com/search?query=${exerciseName}&type=v&sort=v`;
 

@@ -16,8 +16,12 @@ import { exerciseContext } from "../context/ExerciseContext";
  * target
  */
 
+// hook to fetch excercises from the db
+// used inside the search excercise component
+// just fetches all the exerciess
+// stores inside a state
 const useFetchExercise = () => {
-  const url = "https://exercisedb.p.rapidapi.com/exercises";
+  const url = "https://exercisedb.p.rapidapi.com/exercises?limit=100000";
 
   const options = {
     method: "GET",

@@ -2,6 +2,7 @@
  * Function to convert a strign to pascal type
  */
 
+// to convert to pascal case
 const toPascalCase = (str) => {
   str.trim();
   str = str.split(" ");

@@ -1,3 +1,5 @@
+// scroll functionalities
+
 // Function to scroll the screen to the clientX and clientY coordinates of the top left of a container
 const scrollToTop = (container) => {
   const pageY =

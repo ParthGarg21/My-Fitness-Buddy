@@ -13,6 +13,7 @@ import upperArms from "../assets/images/upper arms.png";
 import upperLegs from "../assets/images/upper legs.png";
 import waist from "../assets/images/waist.png";
 
+// util to code all the available body parts
 const allBodyParts = [
   "back",
   "cardio",
