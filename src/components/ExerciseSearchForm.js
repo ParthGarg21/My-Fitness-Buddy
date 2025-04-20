@@ -90,7 +90,7 @@ const ExerciseSearchForm = ({ searchExerciseContainer }) => {
         if (matchKey !== "id" && matchKey !== "gifUrl") {
           // If the current value is there in this prop and it is not already there, then add in the related terms array
           if (
-            exercise[matchKey].startsWith(searchValue) &&
+            exercise[matchKey].startsWith?.(searchValue) &&
             !usedRelatedTerms.has(exercise[matchKey])
           ) {
             currentRelatedTerms.push(exercise[matchKey]);
